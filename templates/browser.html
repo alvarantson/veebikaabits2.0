@@ -1,0 +1,93 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ contact.name }}</title>
+
+	<link rel="stylesheet" type="text/css" href="{% static "browser.css" %}">
+</head>
+<body>
+{% include "navbar/navbar.html" %}
+
+<div class="col-xs-12 main">
+	<div class="col-xs-12">
+		<form method="POST"> {% csrf_token %}
+			<input class="main-input" name="item-name" value="{{ itemname }}"><button class="submit-btn" type="Submit" name="submit-btn" value="search-item"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+			<a id="filter-toggle-btn" class="filter-toggle"><br><span class="caret"></span> {{ lang.show_filters }} <span class="caret"></span></a>
+			<div class="col-xs-12 filters">
+				<div class="checkers">
+					<div class="col-xs-12">
+						<label for="okidoki">{{ lang.okidoki }}: </label><input class="checkbox" type="checkbox" id="okidoki" name="okidoki" {% if okidoki != 'on' %}{% else %}checked{% endif %}> 
+					</div>
+					<div class="col-xs-12">
+						<label for="osta">{{ lang.osta }}: </label><input class="checkbox" type="checkbox" id="osta" name="osta" {% if osta != 'on' %}{% else %}checked{% endif %}>
+					</div>
+					<div class="col-xs-12">
+						<label for="soov">{{ lang.soov }}: </label><input class="checkbox" type="checkbox" id="soov" name="soov" {% if soov != 'on' %}{% else %}checked{% endif %}>
+					</div>
+					<div class="col-xs-12">
+						<label for="kuldnebors">{{ lang.kuldnebors }}: </label><input class="checkbox" type="checkbox" id="kuldnebors" name="kuldnebors" {% if kuldnebors != 'on' %}{% else %}checked{% endif %}>
+					</div>
+				</div>
+				 
+				<div class="col-xs-12 price-range">
+					<p></p>
+					<input class="left" type="number" name="min-price" value="{{ min_price }}" placeholder="min price"><span class="euro"> € </span>
+					<input class="right" type="number" name="max-price" value="{{ max_price }}" placeholder="max price">
+				</div>
+			<!--
+				Filter by price interval: <b>€ 0 </b> <input id="price-range" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000" data-slider-step="5" data-slider-value="[0,10000]"/> <b> € 10000</b>
+				<script type="text/javascript">	
+					$("#price-range").slider({});
+				</script>
+			-->
+				<div class="col-xs-12 filter-pick">
+					<select name="filter">
+						<option value="no-filter" {% if filter == 'no-filter' %}selected{% endif %} >{{ lang.no_filter }}</option>
+						<option value="l-2-h" {% if filter == 'l-2-h' %}selected{% endif %} >{{ lang.price }}: {{ lang.low_to_high }}</option>
+						<option value="h-2-l" {% if filter == 'h-2-l' %}selected{% endif %} >{{ lang.price }}: {{ lang.high_to_low }}</option>
+						<option value="a-2-z" {% if filter == 'a-2-z' %}selected{% endif %} >{{ lang.name }}: {{ lang.a_to_z }}</option>
+						<option value="z-2-a" {% if filter == 'z-2-a' %}selected{% endif %} >{{ lang.name }}: {{ lang.z_to_a }}</option>
+					</select>
+				</div>
+				
+			</div>
+		</form>
+		<script type="text/javascript">
+
+			$('#filter-toggle-btn').click(function(){
+				$('.filters').slideToggle( "slow", function() {});
+			});
+		</script>
+	</div>
+	<div class="col-xs-12 items">
+		{% for i in items %}
+		<a href="{{ i.1 }}">
+			<div class="col-xs-6 col-md-3 col-lg-2 item" style="background-image: url('{{ i.3 }}');">
+				<!-- <div class="col-xs-4 col-lg-1"><img src=""></div> -->
+				<div class="col-xs-12 item-hover">
+					<h3>
+						{{ i.2 }}
+						<br>
+						<span class="item-price" style="float: right;">
+							<b>
+							{{ i.5 }}
+							{% if i.4.0 != '-' %}
+								 {{ i.4.0 }} € / 
+							{% endif %}
+							{% if i.4.1 != '-' %}
+								 {{ i.4.1 }} €
+							{% endif %}
+							</b>
+						</span>
+					</h3>
+				</div>
+			</div>
+		</a>
+		{% endfor %}
+	</div>
+</div>
+
+</body>
+</html>

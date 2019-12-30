@@ -1,0 +1,136 @@
+body{
+	overflow-x: hidden;
+	width: 100vw;
+	height: 141.4285714vw;
+
+}
+.overlay{
+	position: fixed;
+	z-index: 999999999;
+	background-color: rgba(150,150,150,0.6);
+	margin-top: 200px;
+	padding: 50px 50px 50px 50px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+#kuva {
+	position: fixed;
+	z-index: 999999999;
+	top: 5px;
+	right: 5px;
+	font-size: 20px;
+	cursor: pointer;
+	color: white;
+	background-color: rgba(0,0,0,0);
+	border: none;
+	width: auto;
+	height: auto;
+	opacity: 0;
+
+}
+#kuva:hover{
+	color: black;
+	opacity: 1;
+}
+#A4,
+#A5{
+	display: none;
+	top: 0 !important;
+	position: absolute !important;
+}
+img{
+	position: absolute;
+	width: 100vw;
+	z-index: -999;
+}
+/* A4 */
+	#A4 .tekst{
+		position: absolute;
+		color: black;
+		text-align: center;
+		width: 100vw;
+	}
+	#A4 h3{
+		font-family: 'bahnschrift';
+		margin-top: 36vw;
+		font-size: 10vw;
+		font-weight: 700;
+	}
+	#A4 p{
+		font-family: 'bahnschrift';
+		font-size: 3.5vw;
+		font-weight: 300;
+	}
+	#A4 .tekst2{
+		position: absolute;
+		color: black;
+		text-align: center;
+		width: 100vw;
+		margin-top: 102vw;
+	}
+	#A4 h4 {
+		font-family: 'Proxima Nova Extrabold';
+		font-size: 15vw;
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+	#A4 h5{
+		font-family: 'Proxima Nova Extrabold';
+		font-size: 4vw;
+		padding-top: 0;
+		margin-top: 0;
+	}
+/* A5 */
+	.kordus1{
+		padding-top: 0;
+		position: absolute;
+	}
+	.kordus2{
+		padding-top: 70.71428571vw;
+		position: absolute;
+	}
+	#A5{
+		color: black;
+	}
+	#A5 .tekst, #A5 .tekst2{
+		padding-left: 7.5vw;
+		padding-right: 7.5vw;
+		width: 85vw;
+	}
+	#A5 h3{
+		font-family: 'bahnschrift';
+		margin-top: 7vw;
+		font-size: 7.5vw;
+	}
+	#A5 p{
+		text-align: left;
+		font-family: 'bahnschrift';
+		font-size: 3vw;
+		line-height: 3.2vw;
+		font-weight: 300;
+	}
+	#A5 .tekst{
+		position: absolute;
+	}
+	#A5 .tekst2{
+		position: absolute;
+		color: black;
+		text-align: left;
+		width: 100vw;
+		margin-top: 41vw;
+	}
+	#A5 h4 {
+		font-family: 'Proxima Nova Extrabold';
+		font-size: 13vw;
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+	#A5 h5{
+		font-family: 'Proxima Nova Extrabold';
+		font-size: 2.5vw;
+		padding-top: 0;
+		margin-top: 0;
+	}

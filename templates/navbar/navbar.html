@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<!-- BOOTSTRAP 3 CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed|Inconsolata|Lato|Quicksand|Roboto|Exo|Slabo+27px|Lobster|Titillium+Web" rel="stylesheet">
+
+<!-- BS SLIDER @ https://cdnjs.com/libraries/bootstrap-slider -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.1/bootstrap-slider.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.1/css/bootstrap-slider.min.css">
+
+<link rel="stylesheet" type="text/css" href="{% static "all.css" %}">
+
+<!--	NAVBAR IF NEEDED
+
+{% if user.is_authenticated %}
+<div class="admin">
+	<b>
+	{% if request.user.is_superuser %}
+	<a href="/admin">ADMIN</a>
+	<br>
+	{% endif %}
+	<a href="/admin/logout">LOGOUT</a>
+	</b>
+</div>
+{% else %}
+<div class="col-xs-12 navbar">
+	<a href="/"> ESILEHT</a>
+	<span class="vahe">|</span>
+	<a href="/browser"> LEHITSEJA</a>
+</div>
+{% endif %}
+
+-->
+
+<div class="loader-icon">
+	<img src="{% static "loader1.gif" %}">
+</div>
+
+<script type="text/javascript">
+$('.navbar').delay(3000).fadeIn(2000);
+
+
+$(document).on("click", ".submit-btn", function(){
+	$('.loader-icon').fadeIn(1500);
+});
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+	$('#vahe-remove').css('opacity','0');
+	$('#vahe-remove').css('text-shadow','none');
+};
+</script>
+

@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ contact.name }}</title>
+
+	<link rel="stylesheet" type="text/css" href="{% static ".css" %}">
+</head>
+<body style="background-image: url('{% static "" %}');">
+{% include "navbar/navbar.html" %}
+
+<div class="col-xs-12 main"></div>
+
+{% include "navbar/footer.html" %}
+</body>
+</html>

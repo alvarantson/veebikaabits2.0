@@ -1,0 +1,122 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ contact.name }}</title>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<!-- BOOTSTRAP 3 CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed|Inconsolata|Lato|Quicksand|Roboto|Exo|Slabo+27px|Lobster|Titillium+Web" rel="stylesheet">
+
+<!-- BS SLIDER @ https://cdnjs.com/libraries/bootstrap-slider -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.1/bootstrap-slider.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.1/css/bootstrap-slider.min.css">
+
+	<link rel="stylesheet" type="text/css" href="{% static "hinnasilt.css" %}">
+	<script type="text/javascript" src="{% static 'hinnasilt.js' %}"></script>
+
+<style type="text/css">
+	@font-face {
+	  font-family: 'bahnschrift';
+	  src: url({% static 'bahnschrift.ttf' %});
+	}
+	@font-face {
+	  font-family: 'Proxima Nova Extrabold';
+	  src: url({% static 'Proxima Nova Extrabold.otf' %});
+	}
+	@font-face {
+	  font-family: 'ProximaNova-Regular';
+	  src: url({% static 'ProximaNova-Regular.otf' %});
+	}
+</style>
+
+</head>
+<body>
+	<button id="kuva" onclick="naita()"> KUVA </button>
+	<div class="overlay">
+		<button onclick="naitaA4()">A4</button> <button onclick="naitaA5()">A5</button>
+		<input type="text" id="pealkiri" name="pealkiri" placeholder="Pealkiri" onkeyUp="
+		document.getElementById('pealkiri-box').innerHTML = this.value;
+		document.getElementById('a51-pealkiri-box').innerHTML = this.value;
+		document.getElementById('a52-pealkiri-box').innerHTML = this.value;
+
+		">
+		<br>
+		<span> < br > tyhikuteta on uus rida!</span>
+		<br>
+		<textarea id="kirjeldus" name="kirjeldus" placeholder="kirjeldus" onkeyUp="
+		document.getElementById('kirjeldus-box').innerHTML = this.value
+		document.getElementById('a51-kirjeldus-box').innerHTML = this.value
+		document.getElementById('a52-kirjeldus-box').innerHTML = this.value
+		"></textarea>
+		<br>
+		<textarea id="kirjeldus2" name="kirjeldus2" placeholder="kirjeldus2" onkeyUp="
+		document.getElementById('kirjeldus-box2').innerHTML = this.value
+		document.getElementById('a51-kirjeldus-box2').innerHTML = this.value
+		document.getElementById('a52-kirjeldus-box2').innerHTML = this.value
+		"></textarea>
+		<br>
+		<input type="text" id="hind" name="hind" placeholder="hind" onkeyUp="
+		document.getElementById('hind-box').innerHTML = this.value
+		document.getElementById('a51-hind-box').innerHTML = this.value
+		document.getElementById('a52-hind-box').innerHTML = this.value
+		">
+		<br>
+		<input type="text" id="uus-hind" name="uus-hind" placeholder="uushind" onkeyUp="
+		document.getElementById('uus-hind-box').innerHTML = this.value
+		document.getElementById('a51-uus-hind-box').innerHTML = this.value
+		document.getElementById('a52-uus-hind-box').innerHTML = this.value
+		">
+
+		<button onclick="peida()">Peida</button>
+	</div>
+	<div id="A4" >
+		<img src="{% static 'i/a4.jpg' %}">
+		<div class="tekst">
+			<h3 id="pealkiri-box">JALGRATAS FUJI TRAVERSE 1.3 D 22"</h3>
+			<p id="kirjeldus-box">Raam: Traverse 22'', alumiinium<br></p>
+			<p id="kirjeldus-box2">Raam: Traverse 22'', alumiinium<br></p>
+		</div>
+		<div class="tekst2">
+			<h4 id="hind-box">849.00$</h4>
+			<h5 id="uus-hind-box">Tavahind 1000.00$</h5>
+		</div>
+	</div>
+	<div id="A5" >
+		<img src="{% static 'i/a5.jpg' %}">
+		<div class="kordus1">
+			<div class="tekst">
+				<h3 id="a51-pealkiri-box">JALGRATAS FUJI TRAVERSE 1.3 D 22"</h3>
+				<div class="col-xs-6"><p id="a51-kirjeldus-box">Raam: Traverse 22'', alumiinium<br></p></div>
+				<div class="col-xs-6"><p id="a51-kirjeldus-box2">Raam: Traverse 22'', alumiinium<br></p></div>
+			</div>
+			<div class="tekst2">
+				<h4 id="a51-hind-box">849.00$</h4>
+				<h5 id="a51-uus-hind-box">Tavahind 1000.00$</h5>
+			</div>
+		</div>
+		<div class="kordus2">
+			<div class="tekst">
+				<h3 id="a52-pealkiri-box">JALGRATAS FUJI TRAVERSE 1.3 D 22"</h3>
+				<div class="col-xs-6"><p id="a52-kirjeldus-box">Raam: Traverse 22'', alumiinium<br></p></div>
+				<div class="col-xs-6"><p id="a52-kirjeldus-box2">Raam: Traverse 22'', alumiinium<br></p></div>
+			</div>
+			<div class="tekst2">
+				<h4 id="a52-hind-box">849.00$</h4>
+				<h5 id="a52-uus-hind-box">Tavahind 1000.00$</h5>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
