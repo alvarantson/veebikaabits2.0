@@ -21,7 +21,9 @@ form button{
 }
 
 form{
-
+	text-align: center;
+}
+.filter-btn {
 	text-align: center;
 }
 .disclaimer{
@@ -144,6 +146,7 @@ select option{
   */
 }
 .item h3{
+  	font-size: 2vh;
 	text-align: center;
 	margin-top: 1vh;
 	color: white;

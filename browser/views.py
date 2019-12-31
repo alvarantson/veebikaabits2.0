@@ -73,34 +73,23 @@ def browser(request):
 #						request.POST['max-price'],
 #						request.POST['filter']
 #						)
-					return render(request, 'browser.html', context={'lang': browser_text.objects.all()[0],'filter': request.POST['filter'],'itemname': request.POST['item-name'],'items':items, 'min_price': request.POST['min-price'], 'max_price': request.POST['max-price'],  'okidoki': str(request.POST.get('okidoki')), 'osta': str(request.POST.get('osta')), 'soov': str(request.POST.get('soov')), 'kuldnebors': str(request.POST.get('kuldnebors'))})
+					return render(request, 'browser.html', context={'lang': browser_text.objects.all()[0],'filter': 'no-filter','itemname': '','items':items, 'min_price': '0', 'max_price': '10000', 'okidoki': 'on', 'osta': 'on', 'soov': 'on', 'kuldnebors': 'on'})
 			except:
 				pass
 
 			items = searcher(
 				request.POST['item-name'],
-				str(request.POST.get('okidoki')),
-				str(request.POST.get('soov')),
-				str(request.POST.get('osta')),
-				str(request.POST.get('kuldnebors')),
-				request.POST['min-price'],
-				request.POST['max-price'],
-				request.POST['filter']
+				"on",
+				"on",
+				"on",
+				"on",
+				"0",
+				"10000",
+				"no-filter"
 				)
 
-			request.session['storage'] = [request.POST['item-name'],items,str(request.POST.get('okidoki')),str(request.POST.get('soov')),str(request.POST.get('osta')),str(request.POST.get('kuldnebors')),request.POST['min-price'],request.POST['max-price'],request.POST['filter']]
+			request.session['storage'] = [request.POST['item-name'],items,str(request.POST.get('okidoki')),str(request.POST.get('soov')),str(request.POST.get('osta')),str(request.POST.get('kuldnebors')),"0","10000","no-filter"]
 
 
-			items = filterer(
-				items,
-				str(request.POST.get('okidoki')),
-				str(request.POST.get('soov')),
-				str(request.POST.get('osta')),
-				str(request.POST.get('kuldnebors')),
-				request.POST['min-price'],
-				request.POST['max-price'],
-				request.POST['filter']
-				)
-
-			return render(request, 'browser.html', context={'lang': browser_text.objects.all()[0],'filter': request.POST['filter'],'itemname': request.POST['item-name'],'items':items, 'min_price': request.POST['min-price'], 'max_price': request.POST['max-price'],  'okidoki': str(request.POST.get('okidoki')), 'osta': str(request.POST.get('osta')), 'soov': str(request.POST.get('soov')), 'kuldnebors': str(request.POST.get('kuldnebors'))})
+			return render(request, 'browser.html', context={'lang': browser_text.objects.all()[0],'filter': 'no-filter','itemname': '','items':items, 'min_price': '0', 'max_price': '10000', 'okidoki': 'on', 'osta': 'on', 'soov': 'on', 'kuldnebors': 'on'})
 	return render(request, 'browser.html', context={'lang': browser_text.objects.all()[0],'filter': 'no-filter','itemname': '','items':[], 'min_price': '0', 'max_price': '10000', 'okidoki': 'on', 'osta': 'on', 'soov': 'on', 'kuldnebors': 'on'})
