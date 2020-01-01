@@ -25,7 +25,7 @@ SECRET_KEY = '129qvduhm^o$xq#2=)vb&-kji+fxqqq575at-2f3ahbydlkw%k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','192.168.1.230','90.190.70.23', '172.31.18.14', '34.247.46.106', 'veebikaabits.ee', 'www.veebikaabits.ee']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
