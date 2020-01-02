@@ -68,7 +68,6 @@
 		</script>
 	</div>
 	<div class="col-xs-12 items" id="items">
-		{% if items %}{% else %}<p>0 vastet</p>{% endif %}
 	</div>
 	<script type="text/javascript">
 	var db = [];
@@ -82,7 +81,7 @@
 		"website":"{{ i.5 }}"
 	});
 	{% endfor %}
-	console.log(db);
+	if (db == []) {$(".items").append("<p>Ei leitud ühtegi asja!</p>")}
 	</script>
 	<script type="text/javascript" src="{% static 'browser.js' %}"></script>
 </div>
