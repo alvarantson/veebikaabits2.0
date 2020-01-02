@@ -28,7 +28,6 @@ function write(list) {
 		html = html.replace("$price1", list[i]["price1"]);
 		html = html.replace("$price2", list[i]["price2"]);
 		html = html.replace("$website", list[i]["website"]);
-		console.log(html);
 		$(".items").append(html);
 	}
 }
@@ -84,16 +83,23 @@ function refresh() {
 	}
 
 	for (i = 0; i < list.length; i++) {
-		if (list[i]["price1"] == "-") {
+		try {
+			if (list[i]["price1"] == "-") {
+				list[i]["price1"] = 0;
+			}
+		} catch (error) {
+			console.log(list[i]);
 			list[i]["price1"] = 0;
 		}
-		if (list[i]["price2"] == "-") {
+		try {
+			if (list[i]["price2"] == "-") {
+				list[i]["price2"] = 0;
+			}
+		} catch (error) {
+			console.log(list[i]);
 			list[i]["price2"] = 0;
 		}
 	}
-	console.log(list[0]["price1"]);
-	console.log(list[0]["price2"]);
-	console.log(Math.max(list[0]["price1"],list[0]["price2"]));
 	// sort filtering
 	if (type == "no-filter") {
 		// do nothing
