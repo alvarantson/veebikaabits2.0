@@ -120,3 +120,4 @@ function refresh() {
 // init
 
 write(db);
+if (db.length == 0) {$(".items").append("<p>Ei leitud ühtegi asja!</p>")}

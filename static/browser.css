@@ -154,4 +154,6 @@ select option{
 }
 .items p{
 	text-align: center;
+	color: rgb(200,200,200);
+	margin-top: 2.5vh;
 }

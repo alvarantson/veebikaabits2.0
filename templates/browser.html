@@ -3,7 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ contact.name }}</title>
+    <title>{{ misc.title }}</title>
+	<meta name="title" content="{{ misc.title }}">
+	<meta name="description" content="{{ misc.desc }}">
+	<meta name="keywords" content="{{ misc.keywords }}">
+	<meta name="author" content="{{ misc.author }}">
 
 	<link rel="stylesheet" type="text/css" href="{% static "browser.css" %}">
 </head>
@@ -81,7 +85,7 @@
 		"website":"{{ i.5 }}"
 	});
 	{% endfor %}
-	if (db.length == 0) {$(".items").append("<p>Ei leitud ühtegi asja!</p>")}
+	
 	</script>
 	<script type="text/javascript" src="{% static 'browser.js' %}"></script>
 </div>

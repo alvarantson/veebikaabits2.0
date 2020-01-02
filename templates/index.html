@@ -3,9 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ contact.name }}</title>
-    <meta name="propeller" content="f8f29c8b983fb5462cb45afc2a904376">
-	<link rel="stylesheet" type="text/css" href="{% static "index.css" %}">
+    <title>{{ misc.title }}</title>
+	<meta name="title" content="{{ misc.title }}">
+	<meta name="description" content="{{ misc.desc }}">
+	<meta name="keywords" content="{{ misc.keywords }}">
+	<meta name="author" content="{{ misc.author }}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
 </head>
 <body>
 {% include "navbar/navbar.html" %}
