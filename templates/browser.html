@@ -81,7 +81,7 @@
 		"website":"{{ i.5 }}"
 	});
 	{% endfor %}
-	if (db == []) {$(".items").append("<p>Ei leitud ühtegi asja!</p>")}
+	if (db.length == 0) {$(".items").append("<p>Ei leitud ühtegi asja!</p>")}
 	</script>
 	<script type="text/javascript" src="{% static 'browser.js' %}"></script>
 </div>
